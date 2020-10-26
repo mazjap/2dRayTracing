@@ -32,10 +32,10 @@ class DrawableView: UIView {
     
     let light = LightSource(position: CGPoint(x: 0, y: 0), accuracy: 0)
     
-    init(color: UIColor, lineWidth: CGFloat, frame: CGRect) {
+    init(color: UIColor, lineWidth: CGFloat, lightWidth: CGFloat, frame: CGRect) {
         self.color = color.cgColor
         self.lineWidth = lineWidth
-        self.lightSourceCircleSize = lineWidth * 2
+        self.lightSourceCircleSize = lightWidth
         
         super.init(frame: frame)
         
@@ -55,26 +55,30 @@ class DrawableView: UIView {
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
+        context.setStrokeColor(color)
+        context.setLineCap(.round)
+        context.setLineWidth(lineWidth)
+        
         for line in lines {
             context.move(to: line.startPoint)
             context.addLine(to: line.endPoint)
+            
+            context.strokePath()
         }
         
         for ray in light.rays {
             context.move(to: ray.position)
             context.addLine(to: ray.secondaryPosition)
+            
+            context.strokePath()
         }
-        
-        context.setLineCap(.round)
-        context.setLineWidth(lineWidth)
-        context.setStrokeColor(color)
-        
-        context.addEllipse(in: CGRect(x: light.position.x - lightSourceCircleSize / 2,
-                                      y: light.position.y - lightSourceCircleSize / 2,
-                                      width: lightSourceCircleSize,
-                                      height: lightSourceCircleSize))
-        
+
         context.setFillColor(color)
+        
+        context.fillEllipse(in: CGRect(x: light.position.x - lightSourceCircleSize / 2,
+                                       y: light.position.y - lightSourceCircleSize / 2,
+                                       width: lightSourceCircleSize,
+                                       height: lightSourceCircleSize))
     }
     
     func addLines(_ newLines: [Line]) {

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        drawableView = DrawableView(color: .black, lineWidth: 10, frame: view.bounds)
+        drawableView = DrawableView(color: .red, lineWidth: 2, lightWidth: 10, frame: view.bounds)
         view.addSubview(drawableView)
         
         drawableView.changeLightSourcePosition(to: CGPoint(x: 50, y: 50))
