@@ -8,9 +8,13 @@
 import CoreGraphics
 
 struct Ray {
+    // Start point
     var position: CGPoint
+    
+    // Angle
     var direction: CGFloat
     
+    // Calculate arbitrarily distanced point at angle, in radians, direction
     var secondaryPosition: CGPoint {
         CGPoint(x: position.x + cos(direction), y: position.y + sin(direction))
     }
@@ -20,6 +24,7 @@ struct Ray {
         self.direction = direction
     }
     
+    // If ray intersects line, return the point at which they meet
     func intersects(line: Line) -> CGPoint? {
         let p2 = secondaryPosition
         
@@ -32,6 +37,8 @@ struct Ray {
         let y3 = position.y
         let x4 = p2.x
         let y4 = p2.y
+        
+        // Found here: https://en.wikipedia.org/wiki/Line-line_intersection
         
         let denominator = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
         

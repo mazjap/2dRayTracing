@@ -34,6 +34,7 @@ class LightSource {
         self.rays = []; rays = getRays()
     }
     
+    // Did this instead of computed 'rays' variable to save some computational time
     private func getRays() -> [Ray] {
         var temp = [Ray]()
         
@@ -45,6 +46,7 @@ class LightSource {
         return temp
     }
     
+    // Find nearest boundary that each ray intersects, return a line between those two points
     func look(at lines: [Line]) -> [Line] {
         var temp = [Line]()
         
@@ -70,6 +72,7 @@ class LightSource {
         return temp
     }
     
+    // Calculate distance between two points: Square root of ((x2 - x1) + (y2 - y1))
     func getDistance(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat) -> CGFloat {
         let a = x1 - x2
         let b = y1 - y2

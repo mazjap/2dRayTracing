@@ -8,6 +8,7 @@
 import UIKit
 
 class DrawableView: UIView {
+    // setNeedsDisplay for each variable to call the draw(_:) function at next update cycle
     var lines = [Line]() {
         didSet {
             setNeedsDisplay()
@@ -61,13 +62,14 @@ class DrawableView: UIView {
     
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        
+        // Clear previously drawn stuff
         context.clear(rect)
         
         context.setStrokeColor(boundaryColor)
         context.setLineCap(.round)
         context.setLineWidth(lineWidth)
         
+        // Draw each boundary
         for line in lines {
             context.move(to: line.startPoint)
             context.addLine(to: line.endPoint)
@@ -77,22 +79,17 @@ class DrawableView: UIView {
         
         context.setStrokeColor(lightColor)
         
-        for ray in light.rays {
-            context.move(to: ray.position)
-            context.addLine(to: ray.secondaryPosition)
-            
-            context.strokePath()
-        }
-        
+        // Draw each rayLine calculated in light.look
         for rayLine in light.look(at: lines) {
             context.move(to: rayLine.startPoint)
             context.addLine(to: rayLine.endPoint)
             
             context.strokePath()
         }
-
+        
         context.setFillColor(lightColor)
         
+        // Draw light sources center with init-defined size
         context.fillEllipse(in: CGRect(x: light.position.x - lightSourceCircleSize / 2,
                                        y: light.position.y - lightSourceCircleSize / 2,
                                        width: lightSourceCircleSize,
