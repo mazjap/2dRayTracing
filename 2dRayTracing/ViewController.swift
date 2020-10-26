@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        drawableView = DrawableView(color: .red, lineWidth: 2, lightWidth: 10, frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: view.bounds.height - 190)))
+        drawableView = DrawableView(boundaryColor: .gray, lightColor: .yellow, lineWidth: 2, lightWidth: 10, frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: view.bounds.height - 190)))
         slider = UISlider(frame: CGRect(x: 16, y: drawableView.frame.maxY + 16, width: view.bounds.width - 32, height: 100))
         label = UILabel(frame: CGRect(x: 0, y: slider.frame.maxY + 8, width: view.bounds.width, height: 50))
         
@@ -36,7 +36,15 @@ class ViewController: UIViewController {
         
         drawableView.changeLightSourcePosition(to: CGPoint(x: 50, y: 50))
         drawableView.setAccuacy(to: 20)
-        drawableView.addLines([generateRandomLine(), generateRandomLine(), generateRandomLine()])
+        drawableView.addLines(
+            [
+                Line(start: drawableView.frame.origin, end: CGPoint(x: drawableView.frame.maxX, y: 0)),
+                Line(start: drawableView.frame.origin, end: CGPoint(x: 0, y: drawableView.bounds.maxY)),
+                Line(start: CGPoint(x: 0, y: drawableView.bounds.maxY), end: CGPoint(x: drawableView.bounds.maxX, y: drawableView.bounds.maxY)),
+                Line(start: CGPoint(x: drawableView.bounds.maxX, y: drawableView.bounds.maxY), end: CGPoint(x: drawableView.bounds.maxX, y: 0)),
+                generateRandomLine(), generateRandomLine(), generateRandomLine(),
+                generateRandomLine(), generateRandomLine(), generateRandomLine()
+            ])
         
         view.addSubview(drawableView)
         view.addSubview(slider)

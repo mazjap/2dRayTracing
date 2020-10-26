@@ -14,7 +14,12 @@ class DrawableView: UIView {
         }
     }
     
-    var color: CGColor {
+    var boundaryColor: CGColor {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    var lightColor: CGColor {
         didSet {
             setNeedsDisplay()
         }
@@ -32,8 +37,9 @@ class DrawableView: UIView {
     
     let light = LightSource(position: CGPoint(x: 0, y: 0), accuracy: 0)
     
-    init(color: UIColor, lineWidth: CGFloat, lightWidth: CGFloat, frame: CGRect) {
-        self.color = color.cgColor
+    init(boundaryColor: UIColor, lightColor: UIColor, lineWidth: CGFloat, lightWidth: CGFloat, frame: CGRect) {
+        self.boundaryColor = boundaryColor.cgColor
+        self.lightColor = lightColor.cgColor
         self.lineWidth = lineWidth
         self.lightSourceCircleSize = lightWidth
         
@@ -43,7 +49,8 @@ class DrawableView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        self.color = UIColor.black.cgColor
+        self.boundaryColor = UIColor.gray.cgColor
+        self.lightColor = UIColor.yellow.cgColor
         self.lineWidth = 10
         self.lightSourceCircleSize = lineWidth * 2
         
@@ -57,7 +64,7 @@ class DrawableView: UIView {
         
         context.clear(rect)
         
-        context.setStrokeColor(color)
+        context.setStrokeColor(boundaryColor)
         context.setLineCap(.round)
         context.setLineWidth(lineWidth)
         
@@ -66,14 +73,9 @@ class DrawableView: UIView {
             context.addLine(to: line.endPoint)
             
             context.strokePath()
-            
-            for rayLine in light.look(at: line) {
-                context.move(to: rayLine.startPoint)
-                context.addLine(to: rayLine.endPoint)
-                
-                context.strokePath()
-            }
         }
+        
+        context.setStrokeColor(lightColor)
         
         for ray in light.rays {
             context.move(to: ray.position)
@@ -81,8 +83,15 @@ class DrawableView: UIView {
             
             context.strokePath()
         }
+        
+        for rayLine in light.look(at: lines) {
+            context.move(to: rayLine.startPoint)
+            context.addLine(to: rayLine.endPoint)
+            
+            context.strokePath()
+        }
 
-        context.setFillColor(color)
+        context.setFillColor(lightColor)
         
         context.fillEllipse(in: CGRect(x: light.position.x - lightSourceCircleSize / 2,
                                        y: light.position.y - lightSourceCircleSize / 2,
@@ -111,19 +120,7 @@ class DrawableView: UIView {
         light.accuracy = newVal
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let point = touches.first?.location(in: self) {
-            changeLightSourcePosition(to: point)
-        }
-    }
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let point = touches.first?.location(in: self) {
-            changeLightSourcePosition(to: point)
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self) {
             changeLightSourcePosition(to: point)
         }

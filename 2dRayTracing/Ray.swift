@@ -12,7 +12,7 @@ struct Ray {
     var direction: CGFloat
     
     var secondaryPosition: CGPoint {
-        CGPoint(x: position.x + 50 * cos(direction), y: position.y + 50 * sin(direction))
+        CGPoint(x: position.x + cos(direction), y: position.y + sin(direction))
     }
     
     init(position: CGPoint, direction: CGFloat) {
