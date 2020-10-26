@@ -44,6 +44,17 @@ class LightSource {
         
         return temp
     }
+    
+    func look(at line: Line) -> [Line] {
+        var lines = [Line]()
+        for ray in rays {
+            if let point = ray.intersects(line: line) {
+                lines.append(Line(start: ray.position, end: point))
+            }
+        }
+        
+        return lines
+    }
 }
 
 protocol LightSourceDelegate: AnyObject {

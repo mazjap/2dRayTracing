@@ -16,7 +16,7 @@ struct Line {
         self.endPoint = end
     }
     
-    init(x1: Double, y1: Double, x2: Double, y2: Double) {
-        self.init(start: CGPoint(x: x1, y: y1), end: CGPoint(x: x2, y: y2))
+    init<T: BinaryFloatingPoint>(x1: T, y1: T, x2: T, y2: T) {
+        self.init(start: CGPoint(x: Double(x1), y: Double(y1)), end: CGPoint(x: Double(x2), y: Double(y2)))
     }
 }

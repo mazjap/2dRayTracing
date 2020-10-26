@@ -66,6 +66,13 @@ class DrawableView: UIView {
             context.addLine(to: line.endPoint)
             
             context.strokePath()
+            
+            for rayLine in light.look(at: line) {
+                context.move(to: rayLine.startPoint)
+                context.addLine(to: rayLine.endPoint)
+                
+                context.strokePath()
+            }
         }
         
         for ray in light.rays {
