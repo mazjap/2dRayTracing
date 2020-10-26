@@ -12,6 +12,7 @@ class LightSource {
     var position: CGPoint {
         didSet {
             rays = getRays()
+            delegate?.positionDidChange(to: position)
         }
     }
     
@@ -19,6 +20,7 @@ class LightSource {
     var accuracy: Int {
         didSet {
             rays = getRays()
+            delegate?.accuracyDidChange(to: accuracy)
         }
     }
     

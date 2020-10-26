@@ -55,6 +55,8 @@ class DrawableView: UIView {
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
+        context.clear(rect)
+        
         context.setStrokeColor(color)
         context.setLineCap(.round)
         context.setLineWidth(lineWidth)
@@ -103,7 +105,21 @@ class DrawableView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        if let point = touches.first?.location(in: self) {
+            changeLightSourcePosition(to: point)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let point = touches.first?.location(in: self) {
+            changeLightSourcePosition(to: point)
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let point = touches.first?.location(in: self) {
+            changeLightSourcePosition(to: point)
+        }
     }
 }
 
