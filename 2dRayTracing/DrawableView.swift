@@ -1,14 +1,13 @@
-//
-//  DrawableView.swift
-//  2dRayTracing
-//
-//  Created by Jordan Christensen on 10/25/20.
-//
-
 import UIKit
 
 class DrawableView: UIView {
     // setNeedsDisplay for each variable to call the draw(_:) function at next update cycle
+    var boundries = [Line]() {
+        didSet {
+            update()
+        }
+    }
+    
     var lines = [Line]() {
         didSet {
             setNeedsDisplay()
@@ -17,22 +16,22 @@ class DrawableView: UIView {
     
     var boundaryColor: CGColor {
         didSet {
-            setNeedsDisplay()
+            update(false)
         }
     }
     var lightColor: CGColor {
         didSet {
-            setNeedsDisplay()
+            update(false)
         }
     }
     var lineWidth: CGFloat {
         didSet {
-            setNeedsDisplay()
+            update(false)
         }
     }
     var lightSourceCircleSize: CGFloat {
         didSet {
-            setNeedsDisplay()
+            update(false)
         }
     }
     
@@ -70,17 +69,17 @@ class DrawableView: UIView {
         context.setLineWidth(lineWidth)
         
         // Draw each boundary
-        for line in lines {
+        for line in boundries {
             context.move(to: line.startPoint)
             context.addLine(to: line.endPoint)
             
             context.strokePath()
         }
         
-        context.setStrokeColor(lightColor)
+        context.setStrokeColor(self.lightColor)
         
         // Draw each rayLine calculated in light.look
-        for rayLine in light.look(at: lines) {
+        for rayLine in lines {
             context.move(to: rayLine.startPoint)
             context.addLine(to: rayLine.endPoint)
             
@@ -96,12 +95,22 @@ class DrawableView: UIView {
                                        height: lightSourceCircleSize))
     }
     
+    private func update(_ updateList: Bool = true) {
+        if updateList {
+            light.look(at: boundries) { lineList in
+                self.lines = lineList
+            }
+        } else {
+            setNeedsDisplay()
+        }
+    }
+    
     func addLines(_ newLines: [Line]) {
-        self.lines.append(contentsOf: newLines)
+        self.boundries.append(contentsOf: newLines)
     }
     
     func add(line: Line) {
-        self.lines.append(line)
+        self.boundries.append(line)
     }
     
     func changeLightSourcePosition(to point: CGPoint) {
@@ -126,10 +135,10 @@ class DrawableView: UIView {
 
 extension DrawableView: LightSourceDelegate {
     func positionDidChange(to position: CGPoint) {
-        setNeedsDisplay()
+        update()
     }
     
     func accuracyDidChange(to accuracy: Int) {
-        setNeedsDisplay()
+        update()
     }
 }

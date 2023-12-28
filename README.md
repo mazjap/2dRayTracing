@@ -1,29 +1,13 @@
-***Hyperlinked Project Icon***
-
 [![Project Icon][project-icon]][appstore-url]
 
 # 2D Ray Tracing
 
-> Subtitle or Short Description
+A simple 2D ray caster built with UIKit & SwiftUI
 
-> ideally one sentence
-
-> include terms/tags that can be searched
-
-
-(build status) 
-[![Build Status][build-image]][no-link]
-(issues) 
 [![GitHub Issues][issues-image]][issues-url]
-(dependencies) 
-[![Dependencies][dependency-image]][wiki-url]
-(language version) 
 [![Swift Version][swift-image]][swift-url]
-(coverage) 
 [![Coverage][coverage-image]][no-link]
-(license)
 [![License][license-image]][license-url]
-(pull requests) 
 [![GitHub Pull Requests][pr-image]][pr-url]
 
 [![Download-iOS][appstore-image]][appstore-url]
@@ -31,15 +15,6 @@
 ***FIRST GRAPHIC***
 
 [![First Graphic](http://i.imgur.com/dt8AUb6.png)]()
-
-- Most people will glance at your `README`, *maybe* star it, and leave
-- Ergo, people should understand instantly what your project is about based on your repo
-
-> Tips
-
-- HAVE WHITE SPACE
-- MAKE IT PRETTY
-- GIFS ARE REALLY COOL
 
 > GIF Tools
 
@@ -81,16 +56,12 @@
 $ git clone https://github.com/mazjap/2dRayTracing
 ```
 
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
-
 ---
 
 ## Features
 
-- List
-- Of
-- Notible
-- Features
+- Ray casting
+- Walls
 
 ---
 
@@ -119,8 +90,7 @@ $ git clone https://github.com/mazjap/2dRayTracing
 | [Jordan Christensen](https://jordan-christensen.com/) |
 | :---: |
 | [<img src="https://avatars0.githubusercontent.com/u/24785257?s=460&v=4" width="300" />](https://github.com/mazjap) |
-| [<img src="https://github.com/favicon.ico" width="25"> ](https://github.com/mazjap) |
-| [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="25"> ](https://www.linkedin.com/in/jordan-a-christensen/) |
+| [<img src="https://github.com/favicon.ico" width="25"> ](https://github.com/mazjap) | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="25"> ](https://www.linkedin.com/in/jordan-a-christensen/) |
 
 ---
 
@@ -135,7 +105,6 @@ $ git clone https://github.com/mazjap/2dRayTracing
 [![License][license-image]][license-url]
 
 - **[MIT license][license-url]**
-- Copyright 2020 © [Jordan Christensen][website-url].
 
 <!-- Project Images -->
 [project-icon]: https://avatars2.githubusercontent.com/u/24785257?s=200
@@ -143,13 +112,9 @@ $ git clone https://github.com/mazjap/2dRayTracing
 <!-- Badge Images -->
 [build-image]: http://img.shields.io/travis/mazjap/2dRayTracing?style=flat-square/ "Unit Tests Passing"
 [issues-image]: https://img.shields.io/github/issues/mazjap/2dRayTracing "Issues"
-[dependency-image]: https://img.shields.io/badge/Dependancies-0-black "Dependencies"
-[coverage-image]: https://img.shields.io/travis/mazjap/2dRayTracing/master "Coverage"
 [license-image]: https://img.shields.io/badge/License-MIT-blue "License"
 [appstore-image]: https://img.shields.io/badge/-Download%20on%20the%20App%20Store-gray?logo=apple&color=cfdfef "Download on the App Store"
 [pr-image]: https://img.shields.io/github/issues-pr/mazjap/2dRayTracing "Pull Requests"
-
-[objc-image]: https://img.shields.io/badge/objc-2.0-blue "Objective-C"
 [swift-image]: https://img.shields.io/badge/Swift-5.2-green "Swift"
 
 <!-- URL's -->
@@ -161,4 +126,3 @@ $ git clone https://github.com/mazjap/2dRayTracing
 [appstore-url]: #
 [pr-url]: ../../pulls
 [wiki-url]: ../../wiki
-[website-url]: https://jordan-christensen.com

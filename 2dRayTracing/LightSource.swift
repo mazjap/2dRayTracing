@@ -47,16 +47,29 @@ class LightSource {
     }
     
     // Find nearest boundary that each ray intersects, return a line between those two points
-    func look(at lines: [Line]) -> [Line] {
+    func look(at lines: [Line], completion: @escaping ([Line]) -> Void) {
         var temp = [Line]()
         
         for ray in rays {
+            getPoint(for: ray, with: lines) { line in
+                DispatchQueue.main.async {
+                    temp.append(line)
+                    if temp.count == self.rays.count {
+                        completion(temp)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getPoint(for ray: Ray, with lines: [Line], completion: @escaping (Line) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
             var closest: CGPoint? = nil
             var record = CGFloat.greatestFiniteMagnitude
             
             for line in lines {
                 if let point = ray.intersects(line: line) {
-                    let d = getDistance(from: position, to: point)
+                    let d = self.getDistance(from: self.position, to: point)
                     if d < record {
                         record = d
                         closest = point
@@ -65,11 +78,9 @@ class LightSource {
             }
             
             if let unwrappedClosest = closest {
-                temp.append(Line(start: ray.position, end: unwrappedClosest))
+                completion(Line(start: ray.position, end: unwrappedClosest))
             }
         }
-        
-        return temp
     }
     
     // Calculate distance between two points: Square root of ((x2 - x1) + (y2 - y1))

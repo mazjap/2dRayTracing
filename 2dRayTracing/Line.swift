@@ -10,6 +10,13 @@ import CoreGraphics
 struct Line {
     let startPoint: CGPoint
     let endPoint: CGPoint
+    
+    var distance: CGFloat {
+        let xComponent = endPoint.x - startPoint.x
+        let yComponent = endPoint.y - startPoint.y
+        
+        return sqrt(xComponent * xComponent + yComponent * yComponent)
+    }
 
     init(start: CGPoint, end: CGPoint) {
         self.startPoint = start

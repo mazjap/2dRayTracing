@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3A5F642B3BBCE700F02A54 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A5F632B3BBCE700F02A54 /* README.md */; };
+		0E3A5F682B3BEE2500F02A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A5F672B3BEE2500F02A54 /* ContentView.swift */; };
+		0E3A5F6C2B3CFF8800F02A54 /* InlineMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A5F6B2B3CFF8800F02A54 /* InlineMutation.swift */; };
+		0E3A5F6E2B3D024F00F02A54 /* RayTracingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A5F6D2B3D024F00F02A54 /* RayTracingView.swift */; };
 		0EDCE2832546273A00A890CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCE2822546273A00A890CA /* AppDelegate.swift */; };
 		0EDCE2852546273A00A890CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCE2842546273A00A890CA /* SceneDelegate.swift */; };
-		0EDCE2872546273A00A890CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCE2862546273A00A890CA /* ViewController.swift */; };
+		0EDCE2872546273A00A890CA /* UIKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCE2862546273A00A890CA /* UIKitViewController.swift */; };
 		0EDCE28A2546273A00A890CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDCE2882546273A00A890CA /* Main.storyboard */; };
 		0EDCE28C2546273D00A890CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDCE28B2546273D00A890CA /* Assets.xcassets */; };
 		0EDCE28F2546273D00A890CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDCE28D2546273D00A890CA /* LaunchScreen.storyboard */; };
@@ -20,10 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E3A5F632B3BBCE700F02A54 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0E3A5F672B3BEE2500F02A54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E3A5F6B2B3CFF8800F02A54 /* InlineMutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineMutation.swift; sourceTree = "<group>"; };
+		0E3A5F6D2B3D024F00F02A54 /* RayTracingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTracingView.swift; sourceTree = "<group>"; };
 		0EDCE27F2546273A00A890CA /* 2dRayTracing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dRayTracing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDCE2822546273A00A890CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDCE2842546273A00A890CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0EDCE2862546273A00A890CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EDCE2862546273A00A890CA /* UIKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewController.swift; sourceTree = "<group>"; };
 		0EDCE2892546273A00A890CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EDCE28B2546273D00A890CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDCE28E2546273D00A890CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +56,7 @@
 		0EDCE2762546273A00A890CA = {
 			isa = PBXGroup;
 			children = (
+				0E3A5F632B3BBCE700F02A54 /* README.md */,
 				0EDCE2812546273A00A890CA /* 2dRayTracing */,
 				0EDCE2802546273A00A890CA /* Products */,
 			);
@@ -69,8 +78,11 @@
 				0EDCE2A125462B5300A890CA /* Ray.swift */,
 				0EDCE2972546275500A890CA /* Line.swift */,
 				0EDCE2842546273A00A890CA /* SceneDelegate.swift */,
-				0EDCE2862546273A00A890CA /* ViewController.swift */,
+				0EDCE2862546273A00A890CA /* UIKitViewController.swift */,
 				0EDCE29A2546288900A890CA /* DrawableView.swift */,
+				0E3A5F672B3BEE2500F02A54 /* ContentView.swift */,
+				0E3A5F6D2B3D024F00F02A54 /* RayTracingView.swift */,
+				0E3A5F6B2B3CFF8800F02A54 /* InlineMutation.swift */,
 				0EDCE2882546273A00A890CA /* Main.storyboard */,
 				0EDCE28B2546273D00A890CA /* Assets.xcassets */,
 				0EDCE28D2546273D00A890CA /* LaunchScreen.storyboard */,
@@ -138,6 +150,7 @@
 			files = (
 				0EDCE28F2546273D00A890CA /* LaunchScreen.storyboard in Resources */,
 				0EDCE28C2546273D00A890CA /* Assets.xcassets in Resources */,
+				0E3A5F642B3BBCE700F02A54 /* README.md in Resources */,
 				0EDCE28A2546273A00A890CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,10 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDCE2872546273A00A890CA /* ViewController.swift in Sources */,
+				0E3A5F6C2B3CFF8800F02A54 /* InlineMutation.swift in Sources */,
+				0EDCE2872546273A00A890CA /* UIKitViewController.swift in Sources */,
 				0EDCE2982546275500A890CA /* Line.swift in Sources */,
 				0EDCE29E2546295700A890CA /* LightSource.swift in Sources */,
 				0EDCE2A225462B5300A890CA /* Ray.swift in Sources */,
+				0E3A5F682B3BEE2500F02A54 /* ContentView.swift in Sources */,
+				0E3A5F6E2B3D024F00F02A54 /* RayTracingView.swift in Sources */,
 				0EDCE29B2546288900A890CA /* DrawableView.swift in Sources */,
 				0EDCE2832546273A00A890CA /* AppDelegate.swift in Sources */,
 				0EDCE2852546273A00A890CA /* SceneDelegate.swift in Sources */,
@@ -305,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HFR8F4BT7E;
 				INFOPLIST_FILE = 2dRayTracing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HFR8F4BT7E;
 				INFOPLIST_FILE = 2dRayTracing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
