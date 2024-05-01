@@ -12,8 +12,6 @@ A simple 2D ray caster built with UIKit & SwiftUI
 
 [![Download-iOS][appstore-image]][appstore-url]
 
-***FIRST GRAPHIC***
-
 [![First Graphic](http://i.imgur.com/dt8AUb6.png)]()
 
 > GIF Tools
